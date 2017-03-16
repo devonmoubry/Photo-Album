@@ -5,7 +5,7 @@ WHAT IT DOES
 ------------
 
 This photo album "app" allows users to view photos.
-This is built using JavaScript and jQuery to modify the DOm.
+This is built using JavaScript and jQuery to modify the DOM.
 This is the first time practicing a single page application.
 
 REFERENCES
