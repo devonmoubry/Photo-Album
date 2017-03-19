@@ -1,22 +1,23 @@
-.list-view h1{
+.home-view h1{
   text-align: center;
   margin: 0 auto;
   line-height: 8rem;
-  background-color: #d04da6;
+  background-color: black;
   font-size: 2rem;
+  color: #be57f1;
 }
-.list-view ul {
+.home-view ul {
   margin: 0 auto;
   text-align: center;
 }
 
-.list-view li {
+.home-view li {
   list-style-type: none;
   display: inline-block;
   padding: 3vw;
   border: 1px solid black;
   text-align: center;
-  color: #d04da6;
+  font-size: 18px;
   margin: 1vw;
   vertical-align: top;
 }
@@ -25,4 +26,9 @@ img {
   max-width: 24vw;
   display: block;
   padding: 1vw 0;
+}
+
+.home-view a {
+  text-decoration: none;
+  color: #be57f1;
 }

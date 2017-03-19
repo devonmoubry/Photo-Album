@@ -1,7 +1,11 @@
+@import "home-view";
 @import "album-view";
-@import "list-view";
 @import "photo-view";
 
-main {
+body {
   font-family: 'Special Elite', cursive;
+}
+
+.selected {
+  display: block;
 }

@@ -1,6 +1,7 @@
 var albums = [
   {
-    name: 'album1',
+    name: 'Album 1',
+    id: 'album1',
     photos: [{
        url: "images/nasa-43563.jpg",
        id: "photo1",
@@ -18,7 +19,8 @@ var albums = [
      }]
    },
    {
-     name: 'album2',
+     name: 'Album 2',
+     id: 'album2',
      photos: [{
        url: "images/nasa-45067.jpg",
        id: "photo4",
@@ -36,7 +38,8 @@ var albums = [
      }]
    },
   {
-    name: 'album3',
+    name: 'Album 3',
+    id: 'album3',
     photos: [{
       url: "images/nasa-45076.jpg",
       id: "photo7",
@@ -54,7 +57,8 @@ var albums = [
     }]
   },
   {
-    name: 'album4',
+    name: 'Album 4',
+    id: 'album4',
     photos: [{
       url: "images/nasa-53884.jpg",
       id: "photo10",
@@ -72,7 +76,8 @@ var albums = [
     }]
   },
   {
-    name: 'album5',
+    name: 'Album 5',
+    id: 'album5',
     photos: [{
       url: "images/nasa-63030.jpg",
       id: "photo13",
@@ -90,7 +95,8 @@ var albums = [
     }]
   },
   {
-    name: 'album6',
+    name: 'Album 6',
+    id: 'album6',
     photos:
     [{
       url: "images/nasa-89125.jpg",

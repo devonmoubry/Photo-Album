@@ -1,0 +1,33 @@
+.album {
+  display: none;
+}
+
+.album-view h2 {
+  text-align: center;
+  margin: 0 auto;
+  line-height: 8rem;
+  font-size: 2rem;
+  display: block;
+}
+
+.album-view nav {
+  width: 25%;
+  length: 100%;
+  background-color: #111;
+}
+
+.album-view ul {
+  display: inline-block;
+}
+
+.album-view li {
+  list-style-type: none;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  margin: 1rem auto;
+  display: inline-block;
+}
+.album-view a {
+  text-decoration: none;
+  color: #be57f1;
+}
