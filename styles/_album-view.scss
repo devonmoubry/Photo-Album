@@ -10,24 +10,54 @@
   display: block;
 }
 
-.album-view nav {
-  width: 25%;
-  length: 100%;
+.album-nav {
   background-color: #111;
-}
-
-.album-view ul {
   display: inline-block;
+  vertical-align: top;
+  text-align: center;
 }
 
-.album-view li {
+.album-nav ul {
+  display: inline-block;
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+.album-nav li {
   list-style-type: none;
   padding: 1rem 2rem;
   background-color: #fff;
   margin: 1rem auto;
-  display: inline-block;
+  display: block;
+  text-align: center;
 }
-.album-view a {
+.album-nav a {
   text-decoration: none;
   color: #be57f1;
+}
+
+.album-contents {
+  display: inline-block;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.album-contents li{
+  list-style-type: none;
+  padding: 1rem;
+  margin: 1vw;
+  border: 1px solid black;
+  text-align: center;
+  vertical-align: top;
+  display: inline-block;
+}
+
+.album-contents a {
+  text-decoration: none;
+  color: #be57f1;
+}
+
+.album-contents img {
+  margin: 1rem;
+  max-width: 16vw;
 }
