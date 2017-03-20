@@ -1,5 +1,5 @@
-.album {
-  display: none;
+.album-view {
+  display: block;
 }
 
 .album-view h2 {
@@ -12,13 +12,16 @@
 
 .album-nav {
   background-color: #111;
-  display: inline-block;
-  vertical-align: top;
-  text-align: center;
+  width: 180px;
+  float: left;
+}
+
+.selected {
+  padding: 2rem 0;
+  color: black;
 }
 
 .album-nav ul {
-  display: inline-block;
   padding: 1rem;
   margin: 0 auto;
 }
@@ -31,25 +34,27 @@
   display: block;
   text-align: center;
 }
+
 .album-nav a {
   text-decoration: none;
   color: #be57f1;
 }
 
 .album-contents {
-  display: inline-block;
-  margin: 1rem auto;
-  text-align: center;
+}
+
+.album-contents ul {
+  margin: 0;
 }
 
 .album-contents li{
+  display: inline-block;
   list-style-type: none;
-  padding: 1rem;
-  margin: 1vw;
+  padding: 1vw;
+  margin: 2vw;
   border: 1px solid black;
   text-align: center;
   vertical-align: top;
-  display: inline-block;
 }
 
 .album-contents a {
@@ -58,6 +63,7 @@
 }
 
 .album-contents img {
-  margin: 1rem;
-  max-width: 16vw;
+  margin: 1vw;
+  max-width: 12rem;
+  vertical-align: top;
 }

@@ -1,0 +1,30 @@
+.photo-view {
+  display: block;
+}
+
+.photo-view h2{
+  text-align: center;
+  margin: 0 auto;
+  line-height: 8rem;
+  font-size: 2rem;
+  color: #be57f1;
+}
+
+.photo-view a{
+  background-color: #be57f1;
+  color: black;
+  padding: 1rem;
+  margin: 2rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.photo-view img {
+  width: 500px;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  box-sizing: content-box;
+  padding: 0;
+  border: 1px solid white;
+}

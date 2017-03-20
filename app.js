@@ -1,4 +1,13 @@
+function removeAllViews() {
+  $('.home-view').remove();
+  $('.album-view').remove();
+  $('.photo-view').remove();
+  $('body').css('background-color', 'white');
+}
+
 function renderHome() {
+  removeAllViews();
+
   console.log('I rendered the home');
   //home-view container
   $('body').append('<div class="home-view"></div>');
@@ -14,14 +23,11 @@ function renderHome() {
 }
 
 function renderAlbum(clickEvent) {
-  $('.home-view').remove();
-  $('.album-view').remove();
-  console.log('I rendered the album-view');
-  // console.log(clickEvent);
+  removeAllViews();
+
   var selectedAlbum = $.grep(albums, function(album, index) {
     return album['id'] == clickEvent.target.id
   })[0];
-  console.log(selectedAlbum);
   //album-view container
   $('body').append('<div class="album-view"></div>');
   //insert album title
@@ -31,8 +37,12 @@ function renderAlbum(clickEvent) {
   //unordered list
   $('.album-nav').append('<ul></ul>');
   //loop to build links in album-nav
-  albums.forEach(function(element, index, array){
-    $('ul').append('<li id=""><a href="#" id="' +  element['id'] + '">' + element['name']+ '</a></li>');
+  albums.forEach(function(album, index, array){
+    if ( album['id'] === clickEvent.target.id ) {
+      $('.album-nav ul').append('<li id=""><a href="#" class="selected" id="' +  album['id'] + '">' + album['name']+ '</a></li>');
+    } else {
+      $('.album-nav ul').append('<li id=""><a href="#" id="' +  album['id'] + '">' + album['name']+ '</a></li>');
+    }
   });
   //adding listener to album nav links
   $('.album-nav a').on('click', renderAlbum);
@@ -42,12 +52,33 @@ function renderAlbum(clickEvent) {
   $('.album-contents').append('<ul></ul>');
   //insert photos into album container
   selectedAlbum['photos'].forEach(function(element, index, array){
-    $('.album-contents').append('<li><a id="' + element['id'] + '" href="#"><img src="' + element['url'] + '" alt="">' + element['name']+ '</a></li>');
+    $('.album-contents ul').append('<li><a id="' + element['id'] + '" href="#"><img src="' + element['url'] + '" alt="">' + element['name']+ '</a></li>');
   });
+  $('.album-contents a').on('click', renderImage);
 }
 
-function renderImage(eventClick) {
-  console.log('I rendered the image!');
+function findPhoto(photoId) {
+  var selectedPhoto;
+  albums.forEach(function (album, index, array){
+    album['photos'].forEach(function(photo, index, array){
+      if ( photo['id'] == photoId ) {
+        selectedPhoto = photo;
+      }
+    });
+  });
+  return selectedPhoto;
+}
+
+function renderImage(clickEvent) {
+  removeAllViews();
+  $('body').css('background-color', 'black');
+  var selectedPhoto = findPhoto(clickEvent.target.id);
+
+  $('body').append('<div class="photo-view"></div>')
+  $('.photo-view').append('<h2>' + selectedPhoto['name'] + '</h2>');
+  $('.photo-view').append('<a id="' + selectedPhoto['album'] + '" href="#"> Back to ' + selectedPhoto['album'] + '</a>');
+  $('.photo-view a').on('click', renderAlbum);
+  $('.photo-view').append('<img src="' + selectedPhoto['url'] + '" alt="">')
 }
 
 renderHome();
