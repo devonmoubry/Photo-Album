@@ -8,7 +8,6 @@ function removeAllViews() {
 function renderHome() {
   removeAllViews();
 
-  console.log('I rendered the home');
   //home-view container
   $('body').append('<div class="home-view"></div>');
   //heading My Albums
@@ -22,12 +21,32 @@ function renderHome() {
   $('.home-view a').on('click', renderAlbum);
 }
 
+function findAlbum(albumId) {
+  var selectedAlbum;
+  albums.forEach(function (album, index, array){
+    if ( album['id'] == albumId ) {
+      selectedAlbum = album;
+    }
+  })
+  return selectedAlbum;
+}
+
+function findPhoto(photoId) {
+  var selectedPhoto;
+  albums.forEach(function (album, index, array){
+    album['photos'].forEach(function(photo, index, array){
+      if ( photo['id'] == photoId ) {
+        selectedPhoto = photo;
+      }
+    });
+  });
+  return selectedPhoto;
+}
+
 function renderAlbum(clickEvent) {
   removeAllViews();
 
-  var selectedAlbum = $.grep(albums, function(album, index) {
-    return album['id'] == clickEvent.target.id
-  })[0];
+  var selectedAlbum = findAlbum(clickEvent.currentTarget.id);
   //album-view container
   $('body').append('<div class="album-view"></div>');
   //insert album title
@@ -38,7 +57,7 @@ function renderAlbum(clickEvent) {
   $('.album-nav').append('<ul></ul>');
   //loop to build links in album-nav
   albums.forEach(function(album, index, array){
-    if ( album['id'] === clickEvent.target.id ) {
+    if ( album['id'] === clickEvent.currentTarget.id ) {
       $('.album-nav ul').append('<li id=""><a href="#" class="selected" id="' +  album['id'] + '">' + album['name']+ '</a></li>');
     } else {
       $('.album-nav ul').append('<li id=""><a href="#" id="' +  album['id'] + '">' + album['name']+ '</a></li>');
@@ -57,24 +76,14 @@ function renderAlbum(clickEvent) {
   $('.album-contents a').on('click', renderImage);
 }
 
-function findPhoto(photoId) {
-  var selectedPhoto;
-  albums.forEach(function (album, index, array){
-    album['photos'].forEach(function(photo, index, array){
-      if ( photo['id'] == photoId ) {
-        selectedPhoto = photo;
-      }
-    });
-  });
-  return selectedPhoto;
-}
+
 
 function renderImage(clickEvent) {
+  var selectedPhoto = findPhoto(clickEvent.currentTarget.id);
   removeAllViews();
+  
   $('body').css('background-color', 'black');
-  var selectedPhoto = findPhoto(clickEvent.target.id);
-
-  $('body').append('<div class="photo-view"></div>')
+  $('body').append('<div class="photo-view"></div>');
   $('.photo-view').append('<h2>' + selectedPhoto['name'] + '</h2>');
   $('.photo-view').append('<a id="' + selectedPhoto['album'] + '" href="#"> Back to ' + selectedPhoto['album'] + '</a>');
   $('.photo-view a').on('click', renderAlbum);
